@@ -15,6 +15,11 @@ add this to composer.json require:
 "atbox/invi": "dev-master"
 ```
 
+execute:
+```php
+composer update
+```
+
 add this to app/config/app.php end of providers array:
 ```php
 Atbox\Invi\InviServiceProvider::class,
@@ -23,16 +28,6 @@ Atbox\Invi\InviServiceProvider::class,
 add this to config/app.php end of aliases array:
 ```php
 'Invi'      => Atbox\Invi\Facades\Invi::class,
-```
-
-execute:
-```php
-composer update
-```
-
-if Invi class not found run this command for autoload:
-```php
-composer dump-autoload
 ```
 
 Publish migration file:
