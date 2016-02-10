@@ -1,0 +1,31 @@
+{
+    "name": "atbox/invi",
+    "description": "A simple invitation system api for laravel 5",
+	"license": "MIT",
+    "authors": [
+        {
+            "name": "Atbox",
+            "email": "info@atbox.io",
+            "role": "Publisher"
+        },
+        {
+            "name": "Sajjad Rad",
+            "email": "sajjad.273@gmail.com",
+            "role": "Developer"
+        }
+    ],
+	"keywords": ["Laravel","Invite","Invitation"],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "~5"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Atbox\\Invi\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
