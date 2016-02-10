@@ -172,7 +172,7 @@ Invi::delete("f22c597305eb1800","example@domain.com");
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Sajjad Rad
+Copyright (c) 2016 Atbox
 
 http://atbox.io
 https://github.com/atbox/invi-l5
