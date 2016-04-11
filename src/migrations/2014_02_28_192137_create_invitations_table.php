@@ -1,5 +1,4 @@
 <?php
-namespace Atbox\Invi;
 
 /**
  * The MIT License (MIT)
@@ -21,10 +20,41 @@ namespace Atbox\Invi;
  * @link       http://atbox.io/pages/opensource
  */
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class Invitation extends Model
-{
-	protected $table = 'invitations';
-	protected $fillable = array('code','email','expiration','active','used');
+class CreateInvitationsTable extends Migration {
+
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+			Schema::table('invitations', function($table) {
+				$table->engine = 'InnoDB';
+				$table->create();
+				$table->increments('id')->unsigned();	
+				$table->text('code', 255);
+				$table->string('email');
+				$table->date('expiration');
+				$table->boolean('active');
+				$table->boolean('used')->default(False);
+				$table->timestamps();
+			});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::table('invitations', function($table) {
+			$table->drop();
+		});
+	}
+
 }
