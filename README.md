@@ -40,12 +40,6 @@ Run migration command:
 php artisan migrate
 ```
 
-now just use Invi:
-
-```php
-use Invi;
-```
-
 ## Examples ##
 
 
