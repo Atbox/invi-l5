@@ -45,7 +45,7 @@ class InviServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['invi'] = $this->app->share(function ($app)
+        $this->app->singleton('invi', function ($app)
         {
             return new Invi;
         });
