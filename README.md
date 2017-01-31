@@ -12,12 +12,12 @@ This package help you to make a simple invitation system for your signup or othe
 ## Installation ##
 Laravel 5 up to 5.3:
 ```
-composer require thesoulless/reshapetext ^1.0
+composer require atbox/invi ^1.0
 ```
 
 Laravel 5.4:
 ```
-composer require thesoulless/reshapetext ^2.0
+composer require atbox/invi ^2.0
 ```
 
 execute:
