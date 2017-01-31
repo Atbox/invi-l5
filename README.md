@@ -10,13 +10,18 @@ This package help you to make a simple invitation system for your signup or othe
 - Use it,unsed it or delete it
 
 ## Installation ##
-add this to composer.json require:
-```php
-"atbox/invi": "dev-master"
+Laravel 5 up to 5.3:
+```
+composer require thesoulless/reshapetext ^1.0
+```
+
+Laravel 5.4:
+```
+composer require thesoulless/reshapetext ^2.0
 ```
 
 execute:
-```php
+```
 composer update
 ```
 
