@@ -52,13 +52,13 @@ class InviServiceProvider extends ServiceProvider
     }
 
     /**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array('invi');
-	}
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+	return array('invi');
+    }
 }
 
