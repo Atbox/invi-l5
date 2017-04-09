@@ -72,7 +72,7 @@ class Invi
 		Invitation::where('code','=',$code)->where('email','=',$email)
 				->update(array('active'=>True));
 	}
-	public function deactive($code,$email)
+	public function inactive($code,$email)
 	{
 		Invitation::where('code','=',$code)->where('email','=',$email)->update(array('active'=>False));
 	}
@@ -93,7 +93,7 @@ class Invi
 		if($temp)
 		{
 			if(!$temp->active)
-				return "deactive";
+				return "inactive";
 			else if($temp->used)
 				return "used";
 			else if(strtotime("now") > strtotime($temp->expiration))
