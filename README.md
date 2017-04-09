@@ -1,77 +1,80 @@
+[![Packagist](https://img.shields.io/packagist/v/atbox/invi.svg?style=flat-square)](https://packagist.org/packages/atbox/invi)
+[![Packagist](https://img.shields.io/packagist/dt/atbox/invi.svg?style=flat-square)](https://packagist.org/packages/atbox/invi)
+
 # Invi Package for Laravel 5 #
 
-This package help you to make a simple invitation system for your signup or other services.
+This package helps you to create a simple invitation system for your signup or other services.
 [https://packagist.org/packages/atbox/invi]
 
-## Features ##
-- Generate invitation code with email.
-- Set expiration date
-- Active or deactive invite
-- Use it,unsed it or delete it
+## Features
 
-## Installation ##
-Laravel 5 up to 5.3:
-```
-composer require atbox/invi ^1.0
-```
+- Generate an invitation code for a given email
+- Set an expiration date on invites
+- Activate or deactivate invites
+- Use, unuse or delete invites
+
+## Installation
 
 Laravel 5.4:
 ```
 composer require atbox/invi ^2.0
 ```
 
-execute:
+Laravel 5.0 up to 5.3:
+```
+composer require atbox/invi ^1.0
+```
+
+Execute:
 ```
 composer update
 ```
 
-add this to app/config/app.php end of providers array:
+Add this to config/app.php end of providers array:
 ```php
 Atbox\Invi\InviServiceProvider::class,
 ```
 
-add this to config/app.php end of aliases array:
+Add this to config/app.php end of aliases array:
 ```php
-'Invi'      => Atbox\Invi\Facades\Invi::class,
+'Invi' => Atbox\Invi\Facades\Invi::class,
 ```
 
-Publish migration file:
+Publish the migration file:
 ```php
 php artisan vendor:publish
 ```
 
-Run migration command:
+Run the migration command:
 ```php
 php artisan migrate
 ```
 
-## Examples ##
-
+## Example
 
 ```php
-Invi::generate("example@domain.com","2 day",True); // Generate Invitation
+Invi::generate("example@domain.com", "2 day", true); // Generate Invitation
 
-if(Invi::check("f22c597305eb1800","example@domain.com"))
-	Invi::used("f22c597305eb1800","example@domain.com");
+if(Invi::check("f22c597305eb1800", "example@domain.com"))
+    Invi::used("f22c597305eb1800", "example@domain.com");
 else
-	echo Invi::status("f22c597305eb1800","example@domain.com");
+    echo Invi::status("f22c597305eb1800", "example@domain.com");
 ```
 
+## Functions
 
-## Functions ##
+### generate
 
-generate
-==
-generate an invitation code
+Generate an invitation code
 - Arguments:
 	- email
-	- expiration date : 2 year 2 month 13 day 1 hour 23 min 40 sec
+	- expiration date, accepts timespans like: 2 years | 2 months | 13 days | 1 hour | 23 min | 40 sec 
 	- active
-- Return:
-	- A jSon array of all invitation information
+- Returns:
+	- a JSON array of all invitation information
 
 ```php
-Invi::generate("example@domain.com","2 day",True); // Generate Invitation
+Invi::generate("example@domain.com", "2 day", true); // Generate Invitation
 ```
 - Output:
 
@@ -79,90 +82,90 @@ Invi::generate("example@domain.com","2 day",True); // Generate Invitation
 {"code":"f22c5973ebbcca99","email":"example@domain.com","expiration":"2013-05-10 15:58:41 ","active":true,"used":"0"}
 ```
 
-check
-===
-validate invitation code
-- Argouments:
+### check
+
+Validate invitation code
+- Arguments:
 	- invitation code
 	- email
-- Return:
-	- Boolean
+- Returns:
+	- boolean
 
 
 ```php
-Invi::check("f22c597305eb1800","example@domain.com");
+Invi::check("f22c597305eb1800", "example@domain.com");
 ```
 
-status
-===
-return invitation code status
-- Argouments:
+### status
+
+Return invitation code status
+- Arguments:
 	- invitation code
 	- email
-- Return:
-	- Status :  Active,Deactive,Used,Valid,Not Exist
+- Returns:
+	- status: Active, Deactive, Used, Valid, Not Exist
 
 ```php
-echo Invi::status("f22c597305eb1800","example@domain.com");
+echo Invi::status("f22c597305eb1800", "example@domain.com");
 ```
 
-active
-===
-activate an invitation
-- Argouments:
-	- invitation code
-	- email
+### active
 
-```php
-Invi::active("f22c597305eb1800","example@domain.com");
-```
-
-deactive
-===
-deactivate an invitation
-- Argouments:
+Activate an invitation
+- Arguments:
 	- invitation code
 	- email
 
 ```php
-Invi::deactive("f22c597305eb1800","example@domain.com");
+Invi::active("f22c597305eb1800", "example@domain.com");
 ```
 
-used
-==
-make an invitation used
-- Argouments:
+### deactive
+
+Deactivate an invitation
+- Arguments:
 	- invitation code
 	- email
 
 ```php
-Invi::used("f22c597305eb1800","example@domain.com");
+Invi::deactive("f22c597305eb1800", "example@domain.com");
 ```
 
-unused
-==
-make an invitation unused
-- Argouments:
+### used
+
+Make an invitation used
+- Arguments:
 	- invitation code
 	- email
 
 ```php
-Invi::unused("f22c597305eb1800","example@domain.com");
+Invi::used("f22c597305eb1800", "example@domain.com");
 ```
 
-delete
-==
-delete an invitation
-- Argouments:
+### unused
+
+Make an invitation unused
+- Arguments:
 	- invitation code
 	- email
 
 ```php
-Invi::delete("f22c597305eb1800","example@domain.com");
+Invi::unused("f22c597305eb1800", "example@domain.com");
+```
+
+### delete
+
+Delete an invitation
+- Arguments:
+	- invitation code
+	- email
+
+```php
+Invi::delete("f22c597305eb1800", "example@domain.com");
 ```
 
 
-## License ##
+## License
 
 The MIT License (MIT)
 
