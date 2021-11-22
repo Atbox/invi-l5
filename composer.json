@@ -23,7 +23,7 @@
         "classmap": [
             "src/migrations"
         ],
-        "psr-0": {
+        "psr-4": {
             "Atbox\\Invi\\": "src/"
         }
     },
